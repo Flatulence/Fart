@@ -1,0 +1,3 @@
+[submodule "mitmproxy"]
+	path = mitmproxy
+	url = git@github.com:mhils/mitmproxy.git
