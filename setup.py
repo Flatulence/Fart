@@ -29,4 +29,4 @@ setup(name='Fart',
       [paste.app_factory]
       main = fart:main
       """,
-      paster_plugins=['pyramid'])
+      paster_plugins=['pyramid', 'mitmproxy'])
