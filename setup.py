@@ -24,9 +24,14 @@ setup(name='Fart',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires=['cornice', 'waitress'],
-      entry_points = """\
+      install_requires=[
+          'cornice>=1.0.0',
+          'mitmproxy>=0.11.3',
+          'pyOpenSSL>=0.15.1',
+          'waitress>=0.8.9',
+      ],
+      entry_points="""\
       [paste.app_factory]
       main = fart:main
       """,
-      paster_plugins=['pyramid', 'mitmproxy'])
+      paster_plugins=['pyramid'])
