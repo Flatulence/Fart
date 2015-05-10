@@ -24,7 +24,6 @@ class StickyMaster(controller.Master):
             self.shutdown()
 
     def handle_request(self, flow):
-        print 'Got request'
         if flow.request.pretty_host(hostheader=True).endswith(".fart"):
             resp = HTTPResponse(
                 [1, 1], 200, "OK",
@@ -42,7 +41,6 @@ class StickyMaster(controller.Master):
 
 
 def init_proxy(q):
-    print 'kicking shit off fucking um I would print the interface that the'
     config = proxy.ProxyConfig(port=8080)
     server = ProxyServer(config)
     m = StickyMaster(server, q)
