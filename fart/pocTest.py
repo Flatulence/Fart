@@ -26,17 +26,18 @@ class StickyMaster(controller.Master):
     def handle_request(self, flow):
         if flow.request.pretty_host(hostheader=True).endswith(".fart"):
             resp = HTTPResponse(
-                [1, 1], 200, "OK",
+                [1, 1], 301, "Redirect",
                 ODictCaseless([["Content-Type", "text/html"]]),
-                "PFFTTTTTTTTT")
+                '<meta http-equiv="refresh" content="0; url=http://localhost:6543" />')
             flow.reply(resp)
         else:
             flow.reply()
 
     def handle_response(self, flow):
-        hid = (flow.request.host, flow.request.port)
-        if flow.response.headers["set-cookie"]:
-            self.stickyhosts[hid] = flow.response.headers["set-cookie"]
+        httpTransaction = {}
+        httpTransaction["Request"] = flow.request
+        httpTransaction["Response"] = flow.response
+        self.q.put(httpTransaction)
         flow.reply()
 
 

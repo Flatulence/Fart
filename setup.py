@@ -29,6 +29,7 @@ setup(name='Fart',
           'mitmproxy>=0.11.3',
           'pyOpenSSL>=0.15.1',
           'waitress>=0.8.9',
+          'SQLAlchemy>=0.8.4',
       ],
       entry_points="""\
       [paste.app_factory]
