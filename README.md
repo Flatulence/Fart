@@ -3,7 +3,7 @@ This open source MITM HTTP proxy security tool is an open source pen testing and
 
 # Installing
 Install dependancies for mitmproxy, in ubuntu/debian
-`apt-get install libxml2-dev libxslt1-dev python-dev libgd-dev libffi-dev`
+`apt-get install libssl-dev libxml2-dev libxslt1-dev python-dev libgd-dev libffi-dev`
 
 Create a virtual env and then run
 `python setup.py develop`
