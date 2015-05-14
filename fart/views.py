@@ -17,6 +17,9 @@ def get_history(request):
     if page in params:
         try:
             page = int(params["page"])
-        except 
+            return ["httpTransaction1", "httpTransaction2"]
+        except ValueError:
+            pass
+    return "invalid request!"
 
 
