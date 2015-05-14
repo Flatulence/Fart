@@ -7,7 +7,7 @@ Base = declarative_base()
 
 def initialize_sql():
     Session = sessionmaker()
-    engine = create_engine('sqlite:///mypoop.db', echo=True,
+    engine = create_engine('sqlite:///fart.db', echo=True,
                            connect_args={'check_same_thread': False})
     Base.metadata.bind = engine
     Base.metadata.create_all(engine)
