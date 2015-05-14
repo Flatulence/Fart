@@ -41,8 +41,10 @@ class StickyMaster(controller.Master):
         flow.reply()
 
 
-def init_proxy(q):
-    config = proxy.ProxyConfig(port=8080)
+def init_proxy(q,fartconfig):
+    settings = fartconfig.registry.settings
+    port = settings['proxy_port']
+    config = proxy.ProxyConfig(port=int(port))
     server = ProxyServer(config)
     m = StickyMaster(server, q)
     m.run()

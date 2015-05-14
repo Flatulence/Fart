@@ -14,7 +14,7 @@ def main(global_config, **settings):
     config.scan("fart.views")
 
     q = Queue()
-    proxy_thread = Thread(target=init_proxy, args=(q,))
+    proxy_thread = Thread(target=init_proxy, args=(q,config,))
     db_thread = Thread(target=init_worker, args=(q,Session,))
     proxy_thread.start()
     db_thread.start()
