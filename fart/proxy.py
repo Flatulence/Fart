@@ -24,7 +24,7 @@ class StickyMaster(controller.Master):
             self.shutdown()
 
     def handle_request(self, flow):
-        if flow.request.pretty_host(hostheader=True).endswith(".fart"):
+        if flow.request.pretty_host(hostheader=True) == ("fart.fart"):
             resp = HTTPResponse(
                 [1, 1], 301, "Redirect",
                 ODictCaseless([["Content-Type", "text/html"]]),
