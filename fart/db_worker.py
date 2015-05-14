@@ -32,5 +32,7 @@ def init_worker(q, Session):
         session.add(incomingReq)
         session.add(incomingRes)
 
+        session.commit()
+
         for request in session.query(Request).order_by(Request.id):
             print request.path
