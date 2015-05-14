@@ -8,8 +8,6 @@ def init_worker(q, Session):
         httpTransaction = q.get()
         req = httpTransaction["request"]
         res = httpTransaction["response"]
-
-        print type(req.timestamp_start)
         incomingReq = Request(req.method, req.host, req.port, req.path,
                               req.httpversion, req.headers, req.content,
                               req.timestamp_start, req.timestamp_end)
